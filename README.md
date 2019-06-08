@@ -14,31 +14,31 @@ LambdaServerlessRequest is an easy way to make requests to a Lambda serverless f
 const serverlessRequest = require("lambdaserverlessrequest");
 
 const request = serverlessRequest.create({
-	"lambda": new AWS.Lambda({"region": "us-west-2"})
+  "lambda": new AWS.Lambda({"region": "us-west-2"})
 });
 
 try {
-	const result = await request({
-		"method": "get",
-		"functionName": "MyLambdaFunction1",
-		"url": "/api/books"
-	}));
-	console.log(result);
+  const result = await request({
+    "method": "get",
+    "functionName": "MyLambdaFunction1",
+    "url": "/api/books"
+  }));
+  console.log(result);
 } catch (e) {
-	console.error(e);
+  console.error(e);
 }
 
 try {
-	const result = await serverlessRequest({
-		"method": "post",
-		"functionName": "MyLambdaFunction1",
-		"url": "/api/books",
-		"data": {"id": 1, "title": "The best book ever"}
-		"lambda": new AWS.Lambda({"region": "us-west-2"})
-	}));
-	console.log(result);
+  const result = await serverlessRequest({
+    "method": "post",
+    "functionName": "MyLambdaFunction1",
+    "url": "/api/books",
+    "data": {"id": 1, "title": "The best book ever"}
+    "lambda": new AWS.Lambda({"region": "us-west-2"})
+  }));
+  console.log(result);
 } catch (e) {
-	console.error(e);
+  console.error(e);
 }
 ```
 

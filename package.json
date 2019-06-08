@@ -1,8 +1,8 @@
 {
   "name": "lambdaserverlessrequest",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "LambdaServerlessRequest provides an easy way to make requests to a Lambda serverless function instead of having to use API Gateway, with major interface inspiration from axios.",
+  "main": "lib/index.js",
   "scripts": {
     "lint": "eslint .",
     "test": "mocha --recursive",
@@ -16,7 +16,20 @@
     "type": "git",
     "url": "git+https://github.com/rrainn/LambdaServerlessRequest.git"
   },
-  "keywords": [],
+  "keywords": [
+    "serverless",
+    "request",
+    "axios",
+    "amazon",
+    "aws",
+    "api gateway",
+    "api",
+    "gateway",
+    "lambda",
+    "server",
+    "promise",
+    "async"
+  ],
   "author": "rrainn, Inc.",
   "license": "MIT",
   "bugs": {

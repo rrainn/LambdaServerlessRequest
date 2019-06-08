@@ -86,6 +86,11 @@ describe("Response", () => {
 				"output": {"status": 200, "headers": {"x-test": "HELLOworld"}, "data": "Hello World!"}
 			},
 			{
+				"name": "Should decode if isBase64Encoded is true",
+				"input": {"statusCode": 200, "isBase64Encoded": true, "body": "SGVsbG8gV29ybGQ="},
+				"output": {"status": 200, "headers": {}, "data": "Hello World"}
+			},
+			{
 				"name": "Should throw error for 500 status code",
 				"error": true,
 				"input": {"statusCode": 500, "headers": {}, "body": "Error!"},

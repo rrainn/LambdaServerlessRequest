@@ -10,7 +10,7 @@
     "test-coverage": "npm run test-withcoverage && npm run report-coverage",
     "test-ci": "npm run test-withcoverage && npm run report-coverage-ci",
     "report-coverage": "nyc report --reporter=html",
-    "report-coverage-ci": "nyc report --reporter=text-lcov > coverage.lcov && cat coverage.lcov | codacy-coverage && echo Sent Code Coverage Report"
+    "report-coverage-ci": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/rrainn/LambdaServerlessRequest#readme",
   "devDependencies": {
     "chai": "^4.2.0",
+    "coveralls": "^3.0.4",
     "eslint": "^5.16.0",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1"

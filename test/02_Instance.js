@@ -40,7 +40,7 @@ describe("Instance", () => {
 
 					it("Should call Lambda function", async () => {
 						let called = false;
-						let nockBody = {"path":"/api/books","httpMethod":method.method.toUpperCase(),"headers":{"User-Agent":"LambdaServerlessRequest/1.0.0"}};
+						let nockBody = {"path":"/api/books","httpMethod":method.method.toUpperCase(),"headers":{"User-Agent":"lambdaserverlessrequest/1.0.1"}};
 						if (method.paramCount === 3) {
 							nockBody.body = {};
 						}

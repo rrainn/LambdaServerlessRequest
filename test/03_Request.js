@@ -17,7 +17,7 @@ describe("Request", () => {
 				const request = new Request({});
 				expect(request.config.headers).to.eql(request.headers);
 				expect(request.headers).to.eql({
-					"User-Agent": `LambdaServerlessRequest/${packageJSON.version}`
+					"User-Agent": `lambdaserverlessrequest/${packageJSON.version}`
 				});
 			});
 			it("Should keep existing headers when adding User-Agent", () => {
@@ -64,7 +64,7 @@ describe("Request", () => {
 			let called = false;
 			nock("https://lambda.us-west-2.amazonaws.com:443", {"encodedQueryParams":true})
 				.persist()
-				.post("/2015-03-31/functions/MyFunction1/invocations", {"path":"/api/books","httpMethod":"GET","headers":{"User-Agent":"LambdaServerlessRequest/1.0.0"}})
+				.post("/2015-03-31/functions/MyFunction1/invocations", {"path":"/api/books","httpMethod":"GET","headers":{"User-Agent":"lambdaserverlessrequest/1.0.1"}})
 				.reply(() => {
 					called = true;
 					return [200, JSON.stringify({"statusCode": 200, "headers": {}, "body": "Hello World"})];
@@ -84,7 +84,7 @@ describe("Request", () => {
 		it("Should throw error for Lambda error", async () => {
 			nock("https://lambda.us-west-2.amazonaws.com:443", {"encodedQueryParams":true})
 				.persist()
-				.post("/2015-03-31/functions/MyFunction1/invocations", {"path":"/api/books","httpMethod":"GET","headers":{"User-Agent":"LambdaServerlessRequest/1.0.0"}})
+				.post("/2015-03-31/functions/MyFunction1/invocations", {"path":"/api/books","httpMethod":"GET","headers":{"User-Agent":"lambdaserverlessrequest/1.0.1"}})
 				.reply(404, {"Message":"Function not found: arn:aws:lambda:us-west-2:123456789012:function:MyFunction1","Type":"User"});
 
 			const request = new Request({

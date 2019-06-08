@@ -1,6 +1,6 @@
 {
   "name": "lambdaserverlessrequest",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "LambdaServerlessRequest provides an easy way to make requests to a Lambda serverless function instead of having to use API Gateway, with major interface inspiration from axios.",
   "main": "lib/index.js",
   "scripts": {

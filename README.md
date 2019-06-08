@@ -120,6 +120,7 @@ try {
 -   Browser not supported
 -   Requires Node.js version 8 or higher
 -   We have currently only tested using `async`/`await` syntax, most functionality should work with promises, but this has not been tested at this point
+-   This package does not currently work for getting base64 encoded responses from Lambda
 
 ### Instance Methods
 

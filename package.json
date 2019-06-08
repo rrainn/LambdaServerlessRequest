@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha"
+    "test": "mocha",
+    "test-withcoverage": "nyc --all npm test",
+    "test-coverage": "npm run test-withcoverage && npm run report-coverage",
+    "test-ci": "npm run test-withcoverage && npm run report-coverage-ci",
+    "report-coverage": "nyc report --reporter=html",
+    "report-coverage-ci": "nyc report --reporter=text-lcov > coverage.lcov && cat coverage.lcov | codacy-coverage && echo Sent Code Coverage Report"
   },
   "repository": {
     "type": "git",

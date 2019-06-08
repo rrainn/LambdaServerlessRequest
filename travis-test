@@ -1,5 +1,7 @@
 #!/bin/bash
 
 set -ev
+export AWS_ACCESS_KEY_ID=TESTKEY
+export AWS_SECRET_ACCESS_KEY=SECRETTESTKEY
 npm run lint
 npm run test-ci

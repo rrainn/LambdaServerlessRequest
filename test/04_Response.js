@@ -91,6 +91,18 @@ describe("Response", () => {
 				"output": {"status": 200, "headers": {}, "data": "Hello World"}
 			},
 			{
+				"name": "Should return with buffer if isBase64Encoded is true and responseType is arraybuffer",
+				"input": {"statusCode": 200, "isBase64Encoded": true, "body": "SGVsbG8gV29ybGQ="},
+				"output": {"status": 200, "headers": {}, "data": Buffer.from("Hello World")},
+				"config": {"responseType": "arraybuffer"}
+			},
+			{
+				"name": "Should return with buffer responseType is arraybuffer",
+				"input": {"statusCode": 200, "body": "Hello World"},
+				"output": {"status": 200, "headers": {}, "data": Buffer.from("Hello World")},
+				"config": {"responseType": "arraybuffer"}
+			},
+			{
 				"name": "Should throw error for 500 status code",
 				"error": true,
 				"input": {"statusCode": 500, "headers": {}, "body": "Error!"},
@@ -99,17 +111,18 @@ describe("Response", () => {
 		];
 		tests.forEach((test) => {
 			it(test.name, () => {
+				const args = [null, {"Payload": JSON.stringify(test.input)}, test.config || {}];
 				if (test.error) {
 					let result, error;
 					try {
-						result = new Response(null, {"Payload": JSON.stringify(test.input)}, {}).value();
+						result = new Response(...args).value();
 					} catch (e) {
 						error = e;
 					}
 					expect(result).to.not.exist;
 					expect(error).to.eql(test.output);
 				} else {
-					expect(new Response(null, {"Payload": JSON.stringify(test.input)}, {}).value()).to.eql(test.output);
+					expect(new Response(...args).value()).to.eql(test.output);
 				}
 			});
 		});

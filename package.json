@@ -55,7 +55,7 @@
       ".eslintrc.js",
       "test",
       "coverage",
-      "index.js"
+      "test.js"
     ]
   }
 }

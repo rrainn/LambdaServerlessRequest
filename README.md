@@ -84,6 +84,10 @@ try {
     firstName: 'Steve'
   },
 
+  // `responseType` indicates the type of data that the server will respond with
+  // options are: 'arraybuffer', 'json'
+  responseType: 'json', // default
+
   // `validateStatus` defines whether to resolve or reject the promise for a given
   // HTTP response status code. If `validateStatus` returns `true` (or is set to `null`
   // or `undefined`), the promise will be resolved; otherwise, the promise will be
@@ -140,6 +144,7 @@ try {
 
 -   `params` must be a plain object, URLSearchParams is not supported
 -   `body` only accepts String or plain Object as types
+-   `responseType` only accepts json and arraybuffer
 
 #### Removed/Not Present:
 
@@ -151,7 +156,6 @@ try {
 -   `withCredentials`
 -   `adapter`
 -   `auth`
--   `responseType`
 -   `responseEncoding`
 -   `xsrfCookieName`
 -   `xsrfHeaderName`

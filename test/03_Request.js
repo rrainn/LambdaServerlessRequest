@@ -62,9 +62,10 @@ describe("Request", () => {
 
 		it("Should call Lambda function", async () => {
 			let called = false;
+			const packageJSON = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "package.json")));
 			nock("https://lambda.us-west-2.amazonaws.com:443", {"encodedQueryParams":true})
 				.persist()
-				.post("/2015-03-31/functions/MyFunction1/invocations", {"path":"/api/books","httpMethod":"GET","headers":{"User-Agent":"lambdaserverlessrequest/1.0.1"}})
+				.post("/2015-03-31/functions/MyFunction1/invocations", {"path":"/api/books","httpMethod":"GET","headers":{"User-Agent":`lambdaserverlessrequest/${packageJSON.version}`}})
 				.reply(() => {
 					called = true;
 					return [200, JSON.stringify({"statusCode": 200, "headers": {}, "body": "Hello World"})];
@@ -82,9 +83,10 @@ describe("Request", () => {
 		});
 
 		it("Should throw error for Lambda error", async () => {
+			const packageJSON = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "package.json")));
 			nock("https://lambda.us-west-2.amazonaws.com:443", {"encodedQueryParams":true})
 				.persist()
-				.post("/2015-03-31/functions/MyFunction1/invocations", {"path":"/api/books","httpMethod":"GET","headers":{"User-Agent":"lambdaserverlessrequest/1.0.1"}})
+				.post("/2015-03-31/functions/MyFunction1/invocations", {"path":"/api/books","httpMethod":"GET","headers":{"User-Agent":`lambdaserverlessrequest/${packageJSON.version}`}})
 				.reply(404, {"Message":"Function not found: arn:aws:lambda:us-west-2:123456789012:function:MyFunction1","Type":"User"});
 
 			const request = new Request({

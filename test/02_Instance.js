@@ -2,6 +2,8 @@ const {expect} = require("chai");
 const Instance = require("../lib/Instance");
 const nock = require("nock");
 const AWS = require("aws-sdk");
+const fs = require("fs");
+const path = require("path");
 
 describe("Instance", () => {
 	it("Should be a function", () => {
@@ -40,7 +42,8 @@ describe("Instance", () => {
 
 					it("Should call Lambda function", async () => {
 						let called = false;
-						let nockBody = {"path":"/api/books","httpMethod":method.method.toUpperCase(),"headers":{"User-Agent":"lambdaserverlessrequest/1.0.1"}};
+						const packageJSON = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "package.json")));
+						let nockBody = {"path":"/api/books","httpMethod":method.method.toUpperCase(),"headers":{"User-Agent":`lambdaserverlessrequest/${packageJSON.version}`}};
 						if (method.paramCount === 3) {
 							nockBody.body = {};
 						}

@@ -1,4 +1,4 @@
-# LambdaServerlessRequest
+# LambdaServerlessRequest [![Build Status](https://travis-ci.org/rrainn/LambdaServerlessRequest.svg?branch=master)](https://travis-ci.org/rrainn/LambdaServerlessRequest) [![Coverage Status](https://coveralls.io/repos/github/rrainn/LambdaServerlessRequest/badge.svg?branch=master)](https://coveralls.io/github/rrainn/LambdaServerlessRequest?branch=master) [![Known Vulnerabilities](https://snyk.io/test/github/rrainn/LambdaServerlessRequest/badge.svg)](https://snyk.io/test/github/rrainn/LambdaServerlessRequest) [![Dependencies](https://david-dm.org/rrainn/LambdaServerlessRequest.svg)](https://david-dm.org/rrainn/LambdaServerlessRequest) [![Dev Dependencies](https://david-dm.org/rrainn/LambdaServerlessRequest/dev-status.svg)](https://david-dm.org/rrainn/LambdaServerlessRequest?type=dev) [![NPM version](https://badge.fury.io/js/lambdaserverlessrequest.svg)](http://badge.fury.io/js/lambdaserverlessrequest)
 
 ## General
 

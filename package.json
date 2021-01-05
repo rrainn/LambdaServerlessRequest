@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.610.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "lodash": "^4.17.15"
   },
   "nyc": {
